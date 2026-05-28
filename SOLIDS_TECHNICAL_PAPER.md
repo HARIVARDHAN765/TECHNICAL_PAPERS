@@ -2,6 +2,7 @@
 
 ## Introduction
 
+
 SOLID is a group of five important design principles used in Object-Oriented Programming (OOP).
 
 These principles help developers write clean, understandable, reusable, and maintainable code.
@@ -22,6 +23,22 @@ The word SOLID stands for:
 - D - Dependency Inversion Principle
 
 ---
+SOLID is a group of five important design principles used in Object Oriented Programming.
+These principles help developers write clean, understandable, and maintainable code.
+
+SOLID principles make programs:
+- easier to manage
+- easier to update
+- easier to test
+- reusable
+
+The word SOLID stands for:
+
+S - Single Responsibility Principle  
+O - Open Closed Principle  
+L - Liskov Substitution Principle  
+I - Interface Segregation Principle  
+D - Dependency Inversion Principle
 
 # 1. Single Responsibility Principle (SRP)
 
@@ -50,18 +67,48 @@ Here, the class is doing two jobs:
 class Report:
 
     def create_report(self):
+
+Bad Example:
+
+class Report:
+
+    def create_report(self):
+
+        print("Creating Report")
+
+    def save_report(self):
+
+        print("Saving Report")
+
+Here, the class is doing two jobs:
+- creating report
+- saving report
+
+Good Example:
+
+class Report:
+
+    def create_report(self):
+
         print("Creating Report")
 
 
 class SaveReport:
 
     def save_report(self):
+
         print("Saving Report")
 ```
 
 Now each class has only one responsibility.
 
 ---
+
+
+        print("Saving Report")
+
+Now each class has only one responsibility.
+
 
 # 2. Open Closed Principle (OCP)
 
@@ -75,12 +122,19 @@ It means we should add new features without changing old code.
 class Bird:
 
     def sound(self):
+=======Example:
+
+class Bird:
+
+    def sound(self):
+
         pass
 
 
 class Sparrow(Bird):
 
     def sound(self):
+
         print("Chirp")
 
 
@@ -104,16 +158,36 @@ This principle says child classes should replace parent classes without causing 
 class Animal:
 
     def sound(self):
+
+        print("Caw")
+
+We can add new bird classes without changing existing classes.
+
+--------------------------------------------------
+
+# 3. Liskov Substitution Principle (LSP)
+
+This principle says child classes should be able to replace parent classes without causing problems.
+
+Example:
+
+class Animal:
+
+    def sound(self):
+
+>>>>>>> e72c0618b5335187bb8f7d1c6e8dc16db074e326
         print("Animal Sound")
 
 
 class Dog(Animal):
 
     def sound(self):
+
         print("Bark")
 
 
 def make_sound(animal):
+
     animal.sound()
 
 
